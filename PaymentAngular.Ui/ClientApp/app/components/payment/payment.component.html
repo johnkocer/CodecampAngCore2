@@ -1,0 +1,36 @@
+﻿
+<fieldset>
+  <legend><span style="font-weight: bold">Payment Info:  </span></legend>
+  <div ng-style="isMemberSuccess">
+    <div>
+      <div>
+        <label class="paymentTH">Payment Type:</label>
+        <select (change)="OnPaymentTypeChange(paymentType)"><option *ngFor="let paymentType of paymentTypeList">{{paymentType.text}}</option></select>
+      </div>
+      <div>
+        <label class="paymentTH">Credit Card Number</label><br />
+        <input type="text" [(ngModel)]="payment.creditCardNumber" placeholder1="Enter Credit Card Number" numbers-only required class="number-input" size="16" maxsize="16" value="4111111111111111">
+      </div>
+      <div style="float: left; width: 80px;">
+        <label class="paymentTH">Expiry Date</label><br />
+        <input type="text" id="expiryDate" name="expiryDate" [(ngModel)]="payment.expirationDate" placeholder1="Enter Credit Card Number" numbers-only required class="number-input" size="10" maxsize="10" value="01/12/2020">
+      </div>
+      <div style="float: left; margin-left: 10px; width: 100px;">
+        <label class="paymentTH">Security code</label><br />
+        <input type="text" id="creditCardNumber" name="creditCardNumber" [(ngModel)]="payment.cvv" placeholder1="Enter Credit Card Number" numbers-only required class="number-input" size="4" maxsize="4" value="911">
+      </div>
+    </div>
+    <br /><br />
+    <div>
+      <br />
+      <label class="paymentTH">Payment Amount:</label>
+      <br />
+      $<input type="text" id="paymentAmount" name="paymentAmount" size="5" [(ngModel)]="uiProduct.price" readonly="readonly" value="100">
+      <br /><button class="btn btn-primary" (click)="handleMakePaymentClick(uiMember, uiProduct)" type="submit">
+        Process Payment
+      </button>
+    </div>
+    <br />
+    <label>{{paymentMessage}}</label>
+  </div>
+</fieldset>

@@ -1,0 +1,17 @@
+﻿<fieldset>
+  <legend><span style="font-weight: bold">Products:</span> </legend>
+  <div style="display: table;">
+    <div style="display: table-row">
+      <div style="display: table-cell; min-width: 150px; " class="paymentTHBold">Products</div>
+      <div style="display: table-cell; width: 110px; margin-left: 10px;" class="paymentTHBold">&nbsp;&nbsp;&nbsp;Total Price</div>
+      <div style="display: table-cell; width: 130px; margin-left: 10px;" class="paymentTHBold">&nbsp;&nbsp;&nbsp;Monthly Payment</div>
+    </div>
+    <div style="display: table-row">
+      <div style="display: table-cell;">
+        <select [(ngModel)]="uiProduct" (ngModelChange)="onProductListChange($event)"><option [ngValue]="product" *ngFor="let product of productList">{{product.name}}</option></select>
+      </div>
+      <div style="display: table-cell;">$<input type="text" class="paymentTHBold" ng-disabled="true" style="margin-left: 1px;width: 60px;" [(ngModel)]="selectedProduct.price" /></div>
+      <div style="display: table-cell;">$<input type="text" class="paymentTHBold" ng-disabled="true" style="margin-left: 1px;width: 60px;" [(ngModel)]="montlyPayment" /></div>
+    </div>
+  </div>
+</fieldset>
